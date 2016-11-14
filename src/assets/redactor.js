@@ -3251,8 +3251,13 @@
 
 					if (!this.opts.imagePosition) $('.redactor-image-position-option').hide();
 					else {
-						var floatValue = ($image.css('display') == 'block' && $image.css('float') == 'none') ? 'center' : $image.css('float');
-						$('#redactor-image-align').val(floatValue);
+                        if($image.hasClass('leftImage')){
+                            $('#redactor-image-align').val('left');
+                        } else if($image.hasClass('rightImage')){
+                            $('#redactor-image-align').val('right');
+                        } else if($image.hasClass('centerImage')){
+                            $('#redactor-image-align').val('center');
+                        }
 					}
 
 					this.modal.show();
