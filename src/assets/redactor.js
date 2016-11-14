@@ -3281,8 +3281,8 @@
 							break;
 					}
 
-					$image.css({'float': imageFloat, display: imageDisplay, margin: imageMargin});
-					$image.attr('rel', $image.attr('style'));
+					$image.removeClass();
+					$image.addClass(floating+'Image');
 				},
 				update: function ($image) {
 					this.image.hideResize();
@@ -3293,7 +3293,7 @@
 					var title = $('#redactor-image-title').val().replace(/(<([^>]+)>)/ig, "");
 					$image.attr('title', title);
 					var desc = $('#redactor-image-desc').val().replace(/(<([^>]+)>)/ig, "");
-					$image.attr('alt', title);
+					$image.attr('alt', desc);
 
 					this.image.setFloating($image);
 
@@ -3330,7 +3330,6 @@
 					}
 					else if ($link.length !== 0) {
 						$link.replaceWith(this.utils.getOuterHtml($image));
-
 					}
 
 					this.modal.close();
